@@ -244,3 +244,126 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+// Frontend/js/script4.js
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // ==========================================
+    // 1. UTILITY: MESSAGE BOX
+    // ==========================================
+    // Check if function exists globally first (from script.js), else define it locally
+    const showMessage = window.displayMessageBox || function(message) {
+        alert(message); // Fallback
+    };
+
+    // ==========================================
+    // 2. NEWSLETTER LOGIC
+    // ==========================================
+    window.handleNewsletterSubscription = function(event) {
+        event.preventDefault();
+        const emailInput = document.getElementById('newsletter-email');
+        if (emailInput && emailInput.value.trim() !== "") {
+            showMessage(`Subscribed! We'll send updates to ${emailInput.value}`);
+            emailInput.value = "";
+        } else {
+            showMessage("Please enter a valid email address.");
+        }
+    };
+
+    // ==========================================
+    // 3. CAROUSEL LOGIC (RESPONSIVE)
+    // ==========================================
+    const track = document.getElementById('slider-track');
+    const paginationContainer = document.getElementById('carousel-pagination');
+    
+    if (!track) return; // Guard clause
+
+    let currentIndex = 0;
+    let slidesPerView = 1;
+    let totalSlides = 0;
+    let cardWidthPercent = 100; // Default 100%
+
+    // Initialize Metrics based on Window Width
+    function updateMetrics() {
+        const width = window.innerWidth;
+        const cards = track.querySelectorAll('.article-card-wrap');
+        totalSlides = cards.length;
+
+        // Match CSS Media Queries
+        if (width >= 1024) {
+            slidesPerView = 3;
+            cardWidthPercent = 33.333;
+        } else if (width >= 640) {
+            slidesPerView = 2;
+            cardWidthPercent = 50;
+        } else {
+            slidesPerView = 1;
+            cardWidthPercent = 100;
+        }
+
+        // Cap current index if window resized
+        const maxIndex = Math.ceil(totalSlides / slidesPerView) - 1;
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+        updatePosition();
+        renderDots();
+    }
+
+    // Move Slider
+    function updatePosition() {
+        // Translate X based on percentage
+        const translateValue = -(currentIndex * 100); 
+        // Note: Logic changes slightly here. 
+        // We slide by 'pages' (groups of cards) or single cards?
+        // Let's slide by 'viewport width' (100% of track visible area).
+        
+        track.style.transform = `translateX(${translateValue}%)`;
+        updateDotsUI();
+    }
+
+    // Scroll Function (Next/Prev Buttons)
+    window.scrollSlider = function(direction) {
+        const maxIndex = Math.ceil(totalSlides / slidesPerView) - 1;
+        currentIndex += direction;
+
+        if (currentIndex < 0) currentIndex = 0;
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+        updatePosition();
+    };
+
+    // Dot Navigation
+    window.goToSlide = function(index) {
+        currentIndex = index;
+        updatePosition();
+    };
+
+    // Render Dots
+    function renderDots() {
+        if (!paginationContainer) return;
+        paginationContainer.innerHTML = '';
+        
+        const numPages = Math.ceil(totalSlides / slidesPerView);
+        
+        for (let i = 0; i < numPages; i++) {
+            const dot = document.createElement('div');
+            dot.className = `pagination-dot ${i === currentIndex ? 'active' : ''}`;
+            dot.onclick = () => window.goToSlide(i);
+            paginationContainer.appendChild(dot);
+        }
+    }
+
+    function updateDotsUI() {
+        const dots = document.querySelectorAll('.pagination-dot');
+        dots.forEach((dot, idx) => {
+            dot.classList.toggle('active', idx === currentIndex);
+        });
+    }
+
+    // --- Events ---
+    window.addEventListener('resize', updateMetrics);
+    
+    // Init
+    updateMetrics();
+});

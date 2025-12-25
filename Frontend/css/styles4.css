@@ -107,27 +107,14 @@ header {
     display: none;
 }
 
-@media (min-width: 768px) {
-    .Menu-Button {
-        display: none;
-    }
-}
-
-@media (max-width: 767px) {
-    .Menu-Button {
-        display: block;
-    }
-    .nav-desktop {
-        display: none;
-    }
-}
-
 /* Blog section styling */
 .Blog-Hero-Section {
     background-image: url(../images/blog.jpg);
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    /* Mobile Height */
+    height: 60vh;
+    min-height: 400px;
     position: relative;
     display: flex;
     align-items: center;
@@ -138,156 +125,124 @@ header {
 .Blog-Hero-Section::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
 
 .Blog-Content {
     position: relative;
     z-index: 10;
-    max-width: 500px;
+    max-width: 600px;
     padding: 1rem;
-    margin-left: 2rem;
+    color: white;
 }
 
 .Blog-Content h1 {
     font-family: "Abril Fatface", serif;
-    font-size: clamp(2.5rem, 8vw, 4rem);
-    font-weight: 700;
+    font-size: 3rem; /* Mobile Size */
     line-height: 1.1;
     margin-bottom: 1rem;
-    color: white;
 }
 
 .Blog-Content p {
     font-size: 1rem;
-    color: whitesmoke;
-    margin-bottom: 2rem;
+    color: white;
 }
 
-@media (min-width: 640px) {
-    .Blog-Content h1 {
-        font-size: 4rem;
-    }
-
-    .Block-Logo {
-        font-size: 3rem;
-    }
+/* Tablet & Desktop Hero Adjustments */
+@media (min-width: 768px) {
+    .Blog-Hero-Section { height: 70vh; padding-left: 4rem; }
+    .Blog-Content h1 { font-size: 4rem; }
 }
 
 @media (min-width: 1024px) {
-    .Blog-Content h1 {
-        font-size: 5rem;
-    }
+    .Blog-Hero-Section { height: 80vh; }
+    .Blog-Content h1 { font-size: 5rem; }
 }
+
 
 /* Blog main content */
 .blog-main-content {
-    padding: 4rem 0;
     background-color: white;
+    padding-bottom: 4rem;
 }
 
 /* Typography Styles */
 .post-title {
     font-family: "Abril Fatface", serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    line-height: 1.1;
-    color: black;
+    font-size: 2rem;
+    line-height: 1.2;
     margin-bottom: 1rem;
+    color: black;
 }
 
 .featured-container {
     max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 1rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
 /* Featured Post Card Styles */
-.featured-tag { 
-    background-color: #0A0A0A; 
-    color: white; 
-    font-weight: 600;
-    padding: 0.5rem 1rem;
+.featured-tag {
+    background: black;
+    color: white;
+    padding: 0.25rem 0.75rem;
     font-size: 0.75rem;
-    text-align: center;
-    letter-spacing: 0.1em; 
-    text-transform: uppercase; 
-    border-radius: 0.25rem; 
-    display: inline-block; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    opacity: 0; 
-    margin-bottom: 1.5rem;
-    animation: fadeIn 0.8s forwards 0.8s; 
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 4px;
+    align-self: flex-start;
+    margin-bottom: 1rem;
 }
 
 .featured-post-card { 
-    width: 90%; 
-    max-width: 1200px;
-    margin: 0 auto 4rem auto; 
-    margin-top: -6rem; 
     background-color: white;
-    padding: 0; 
-    border: 1px solid black;
-    border-radius: 0.5rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
     position: relative;
-    z-index: 20; 
-    overflow: hidden; 
-    opacity: 0; 
-    animation: fadeIn 1s forwards 0.5s;
+    z-index: 20;
+    /* Default: Stacked for Mobile */
+    margin-top: 2rem;
+    border: 1px solid black;
 }
 
 .featured-badge {
     align-self: flex-start;
 }
 
-.image-hover-container { 
+.image-hover-container {
     width: 100%;
-    overflow: hidden; 
-    border-radius: 0.5rem; 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
-    position: relative;
-    height: 300px;
-    flex-shrink: 0;
+    height: 300px; /* Mobile height */
+    overflow: hidden;
 }
 
-.image-hover-container img { 
-    width: 100%; 
-    height: 100%; 
-    display: block; 
-    object-fit: cover; 
+.image-hover-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-.image-hover-container:hover img { 
+.image-hover-container:hover img {
     transform: scale(1.05);
 }
 
 .text-desc { 
     color: darkslategray;
-    line-height: 1.6;
     font-size: 1.1rem;
+    font-weight: 700;
     font-family: 'Abhaya', serif;
-    opacity: 0;
-    font-weight: 600;
-    animation: fadeIn 0.8s forwards 1.2s;
+    line-height: 1.6;
     margin-bottom: 2rem;
-    max-width: 100%;
 }
 
 .blog-featured-content {
-    padding: 2.5rem;
+    padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; 
-    flex: 1;
 }
 
 .blog-featured-content .post-title { 
@@ -295,16 +250,13 @@ header {
     animation: fadeIn 0.8s forwards 1s; 
 }
 
-.blog-meta { 
-    opacity: 0;
-    animation: fadeIn 0.8s forwards 1.1s;
+.blog-meta {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
     gap: 1rem;
     color: grey;
-    font-family: 'Inter', serif;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
 }
 
 .blog-meta-item { 
@@ -317,22 +269,17 @@ header {
     color: #ccc;
 }
 
-.btn-secondary { 
-    background-color: #10B981; 
-    color: white; 
-    font-weight: 700; 
-    text-transform: uppercase; 
-    padding: 0.75rem 1.5rem; 
-    border-radius: 0.25rem;
+.btn-secondary {
+    background-color: green;
+    color: white;
     border: none;
-    text-align: center;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease; 
-    display: inline-flex; 
-    align-items: center; 
-    gap: 0.5rem; 
-    opacity: 0; 
-    animation: fadeIn 0.8s forwards 1.3s; 
+    align-self: flex-start;
+    transition: background 0.3s;
 }
 
 .btn-secondary:hover { 
@@ -349,26 +296,9 @@ header {
 }
 
 /* Responsiveness for Featured Card */
-.blog-featured-grid { 
+.blog-featured-grid {
     display: flex;
-    flex-direction: column; 
-    width: 100%;
-}
-
-@media (min-width: 900px) { 
-    .blog-featured-grid { 
-        flex-direction: row; 
-        align-items: stretch; 
-        min-height: 550px;
-    } 
-    .image-hover-container { 
-        height: auto;
-        flex: 1.2;
-    }
-    .blog-featured-content{
-        flex: 1;
-        padding: 4rem;
-    }
+    flex-direction: column;
 }
 
 /* Adjustments for typography inside the card */
@@ -387,17 +317,16 @@ header {
 
 /* Latest Articles Carousel Styles */
 .latest-articles-section {
-    padding: 5rem 0;
+    padding: 4rem 0;
     position: relative;
 }
 
 .latest-articles-title {
     font-family: "Abril Fatface", serif;
     font-size: 2.5rem;
-    font-weight: 700;
     text-align: center;
     margin-bottom: 3rem;
-    color: #0A0A0A;
+    color: black;
 }
 
 .carousel-container {
@@ -411,19 +340,17 @@ header {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 10;
-    width: 45px;
-    height: 45px;
-    background-color: #0A0A0A;
-    color: white;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+    background: #000;
+    color: white;
     border: none;
-    display: none;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .carousel-nav-btn:hover {
@@ -432,42 +359,22 @@ header {
 }
 
 .carousel-prev {
-    left: 0.5rem;
+    left: 10px;
 }
 
 .carousel-next {
-    right: 0.5rem;
-}
-
-@media (min-width: 768px) {
-    .carousel-nav-btn {
-        display: flex;
-    }
-}
-
-@media (min-width: 1024px) {
-    .carousel-prev {
-        left: -3.5rem;
-    }
-    .carousel-next {
-        right: -3.5rem;
-    }
+    right: 10px;
 }
 
 /* Slider Viewport */
 .slider-viewport {
     overflow: hidden;
-    padding: 0 1rem;
 }
 
 /* Slider Track */
 .slider-track {
     display: flex;
-    scroll-behavior: smooth;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
+    transition: transform 0.5s ease-out; /* JS handles transform */
 }
 
 .slider-track::-webkit-scrollbar {
@@ -476,34 +383,22 @@ header {
 
 /* Article Card Sizing and Scroll Snapping */
 .article-card-wrap {
-    flex-shrink: 0;
-    padding: 0 0.5rem;
-    scroll-snap-align: start; 
-    width: 100%;
-}
-
-@media (min-width: 640px) {
-    .article-card-wrap {
-        width: 50%;
-    }
-}
-
-@media (min-width: 1024px) {
-    .article-card-wrap {
-        width: calc(100% / 3);
-    }
+    /* Mobile: 1 card per view */
+    flex: 0 0 100%; 
+    padding: 0 1rem;
+    box-sizing: border-box;
 }
 
 /* Article Card Content Styles */
 .article-card-content {
-    background-color: #1A1A1A; 
-    color: white;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
     display: block;
+    background: black;
+    border-radius: 8px;
+    overflow: hidden;
+    color: white;
     text-decoration: none;
+    transition: transform 0.3s;
+    height: 100%; /* Equal height cards */
 }
 
 .article-card-content:hover {
@@ -513,7 +408,7 @@ header {
 
 .article-card-image {
     width: 100%;
-    height: 250px;
+    height: 220px;
     object-fit: cover;
 }
 
@@ -522,35 +417,34 @@ header {
 }
 
 .card-category {
-    font-size: 0.8rem;
-    font-weight: 700;
     color: #10B981;
-    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
 }
 
 .card-title {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    color: white;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
 }
 
 .card-description {
-    font-size: 0.875rem;
-    color: #9CA3AF;
-    margin-bottom: 1rem;
-    line-height: 1.5;
+    color: #9ca3af;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
 }
 
 .card-footer {
-    border-top: 1px solid #333;
-    padding-top: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-top: 1px solid #333;
+    padding-top: 1rem;
+    font-size: 0.8rem;
+    color: #9ca3af;
 }
 
 .footer-meta {
@@ -568,7 +462,7 @@ header {
 
 .continue-btn {
     color: #10B981;
-    font-weight: 700;
+    font-weight: 600;
     text-decoration: none;
     transition: color 0.2s;
     font-size: 0.875rem;
@@ -582,32 +476,30 @@ header {
 .carousel-pagination {
     display: flex;
     justify-content: center;
-    gap: 0.75rem;
-    margin-top: 3rem;
+    gap: 10px;
+    margin-top: 2rem;
 }
 
 .pagination-dot {
     width: 10px;
     height: 10px;
-    background-color: #B0B0B0;
+    background: #e5e7eb;
     border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
 }
 
 .pagination-dot.active {
-    background-color: #0A0A0A;
+    background: #10B981;
     transform: scale(1.2);
 }
 
 /* Stay Updated Section Styles */
 .newsletter-section {
-    padding: 5rem 1rem;
-    background-color: #0A0A0A;
     background-image: url(../images/black3_bd.jpg);
     background-size: cover;
-    background-position: center;
+    padding: 4rem 1rem;
     color: white;
+    text-align: center;
 }
 
 .newsletter-container {
@@ -641,24 +533,15 @@ header {
     flex-direction: column;
     gap: 1rem;
     max-width: 500px;
-    margin: 0 auto;
-}
-
-@media (min-width: 640px) {
-    .newsletter-form-blog {
-        flex-direction: row;
-    }
+    margin: 2rem auto 0;
 }
 
 .newsletter-input {
-    flex: 1;
-    padding: 0.75rem 1.5rem;
-    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.1);
     color: white;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 0.25rem;
-    font-size: 1rem;
-    transition: border-color 0.3s, background-color 0.3s;
+    border-radius: 4px;
 }
 
 .newsletter-input::placeholder {
@@ -672,16 +555,13 @@ header {
 }
 
 .btn-send-now {
-    background-color: white;
-    color: #0A0A0A;
+    padding: 1rem;
+    background: #10B981;
+    color: white;
+    border: none;
     font-weight: 700;
-    padding: 0.75rem 2rem;
-    border: 2px solid #10B981;
-    border-radius: 0.25rem;
-    text-transform: uppercase;
     cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+    border-radius: 4px;
 }
 
 .btn-send-now:hover {
@@ -705,13 +585,6 @@ footer {
     max-width: 1280px;
     margin: 0 auto;
     text-align: center;
-}
-
-@media (min-width: 768px) {
-    .footer-content {
-        grid-template-columns: 2fr repeat(4, 1fr);
-        text-align: left;
-    }
 }
 
 .footer-content h4 {
@@ -777,12 +650,6 @@ footer {
     transform: translateY(-2px);
 }
 
-@media (min-width: 768px) {
-    .footer-logo {
-        justify-content: flex-start;
-    }
-}
-
 .footer-description {
     font-size: 1.1rem;
     color: #4b5563;
@@ -792,22 +659,10 @@ footer {
     margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-    .footer-description {
-        margin: 0;
-    }
-}
-
 .social-icons {
     display: flex;
     gap: 1rem;
     justify-content: center;
-}
-
-@media (min-width: 768px) {
-    .social-icons {
-        justify-content: flex-start;
-    }
 }
 
 .social-icons a {
@@ -882,4 +737,51 @@ footer {
     .carousel-prev { left: -1.5rem; }
     .carousel-next { right: -1.5rem; }
     .carousel-nav-btn:hover { background: #10B981; }
+}
+
+/* --- Responsive Featured Card (Desktop Overlap) --- */
+@media (min-width: 1024px) {
+    .featured-post-card {
+        margin-top: -6rem; /* Pull up over hero */
+        margin-bottom: 4rem;
+    }
+    .blog-featured-grid {
+        flex-direction: row;
+        min-height: 500px;
+    }
+    .image-hover-container {
+        flex: 1.2;
+        height: auto;
+    }
+    .blog-featured-content {
+        flex: 1;
+        padding: 4rem;
+    }
+    .post-title {
+        font-size: 3rem;
+    }
+}
+
+/* Tablet: 2 cards */
+@media (min-width: 640px) {
+    .article-card-wrap {
+        flex: 0 0 50%;
+    }
+}
+
+/* Desktop: 3 cards */
+@media (min-width: 1024px) {
+    .article-card-wrap {
+        flex: 0 0 33.333%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .carousel-prev { left: -50px; }
+    .carousel-next { right: -50px; }
+}
+
+@media (min-width: 640px) {
+    .newsletter-form-blog { flex-direction: row; }
+    .newsletter-input { flex: 1; }
 }
