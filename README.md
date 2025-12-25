@@ -1,1 +1,5 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Dhqdmff7)
+# Luxe_Fashion
+
+LUXE - Fashion Luxury Brand
+
+LUXE is a high-fidelity, multi-page e-commerce web application designed for a premium fashion brand. The project features a modern "Luxury Minimalist" aesthetic, a functional shopping cart, user order history, and a comprehensive administrative dashboard for store management.
