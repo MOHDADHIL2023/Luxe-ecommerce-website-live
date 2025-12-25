@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.removeItem('luxe_current_user');
                 localStorage.removeItem('luxe_token');
                 alert("Logged out successfully!");
-                setTimeout(() => window.location.href = '.../index.html', 500);
+                setTimeout(() => window.location.href = '../index.html', 500);
             }
         };
     }
