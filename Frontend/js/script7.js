@@ -184,7 +184,7 @@ window.handleCheckout = async function() {
 
     if (!user || !token) {
         if (confirm("You need to login to checkout. Go to login page?")) {
-            window.location.href = '/Frontend/pages/login.html';
+            window.location.href = '../pages/login.html';
         }
         return;
     }
@@ -268,7 +268,7 @@ window.handleCheckout = async function() {
             }
 
             setTimeout(() => {
-                window.location.href = '/Frontend/pages/orders.html';
+                window.location.href = '../pages/orders.html';
             }, 2000);
 
         } else {

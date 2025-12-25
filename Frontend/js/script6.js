@@ -131,7 +131,7 @@ window.handleAuth = async function(event, type) {
                 // Admin Login
                 displayMessageBox(` Welcome Admin ${firstName}! Going to Dashboard...`);
                 setTimeout(() => {
-                    window.location.href = '/Frontend/pages/admin.html';
+                    window.location.href = '../pages/admin.html';
                 }, 1500);
             } else {
                 // Customer Login OR New Signup
@@ -142,7 +142,7 @@ window.handleAuth = async function(event, type) {
                 displayMessageBox(`${msg} Redirecting to store...`);
                 
                 setTimeout(() => {
-                    window.location.href = '/Frontend/index.html';
+                    window.location.href = '../index.html';
                 }, 1500);
             }
 
@@ -221,9 +221,9 @@ async function handleGoogleResponse(response) {
             // Redirect based on role
             setTimeout(() => {
                 if (data.user.role === 'admin') {
-                    window.location.href = '/Frontend/pages/admin.html';
+                    window.location.href = '../pages/admin.html';
                 } else {
-                    window.location.href = '/Frontend/index.html';
+                    window.location.href = '../index.html';
                 }
             }, 1500);
         } else {

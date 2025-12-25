@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.removeItem('luxe_current_user');
                 localStorage.removeItem('luxe_token');
                 alert("Logged out successfully!");
-                setTimeout(() => window.location.href = '/Frontend/index.html', 500);
+                setTimeout(() => window.location.href = '.../index.html', 500);
             }
         };
     }
@@ -125,18 +125,18 @@ window.addToCartBtn = function(product = null) {
         // Navigation Logic
         const path = window.location.pathname;
         const isPages = path.includes('/pages/');
-        window.location.href = isPages ? 'cart.html' : '/Frontend/pages/cart.html';
+        window.location.href = isPages ? 'cart.html' : '../pages/cart.html';
     }
 }
 
 // Nav Helpers
 window.handleSearchClick = () => {
     const isPages = window.location.pathname.includes('/pages/');
-    window.location.href = isPages ? 'products.html' : '/Frontend/pages/products.html';
+    window.location.href = isPages ? 'products.html' : '../pages/products.html';
 }
 window.handleLoginSignup = () => {
     const isPages = window.location.pathname.includes('/pages/');
-    window.location.href = isPages ? 'login.html' : '/Frontend/pages/login.html';
+    window.location.href = isPages ? 'login.html' : '../pages/login.html';
 }
 
 // Message Box

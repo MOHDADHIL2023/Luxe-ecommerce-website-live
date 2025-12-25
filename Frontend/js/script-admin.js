@@ -21,7 +21,7 @@ function checkAuth() {
 
     if (!user || !token || user.role !== 'admin') {
         alert("Access Denied: Admins only.");
-        window.location.href = '/Frontend/pages/login.html';
+        window.location.href = '../pages/login.html';
         return false;
     }
     return true;

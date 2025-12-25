@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <p style="font-size: 1.2rem;">Please login to view your order history.</p>
             </div>
         `;
-        setTimeout(() => window.location.href = '/Frontend/pages/login.html', 1500);
+        setTimeout(() => window.location.href = '../pages/login.html', 1500);
         return;
     }
 
