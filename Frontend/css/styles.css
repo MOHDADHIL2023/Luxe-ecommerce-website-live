@@ -122,7 +122,7 @@ header {
 
 /* Hero section styling */
 .Hero-Section {
-    background-image: url(/Frontend/images/menfashion.jpg);
+    background-image: url(../images/menfashion.jpg);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -527,7 +527,7 @@ header {
     min-height: 500px;
     position: relative;
     overflow: hidden;
-    background-image: url(/Frontend/images/WeekDealSale.jpg);
+    background-image: url(../images/WeekDealSale.jpg);
     background-size: cover;
     background-position: center;
     display: flex;
@@ -780,7 +780,7 @@ header {
 .newsletter-section {
     padding: 6rem 1rem;
     background-color: rgb(10, 10, 83);
-    background-image: url(/Frontend/images/black3_bd.jpg);
+    background-image: url(../images/black3_bd.jpg);
     background-size: cover;
     background-position: center;
     text-align: center;
