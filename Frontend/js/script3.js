@@ -1,3 +1,60 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+    // ==========================================
+    // 1. MOBILE MENU LOGIC
+    // ==========================================
+    const menuButton = document.getElementById('menu-button');
+    const closeMenuButton = document.getElementById('close-menu-button');
+    const mobileMenu = document.getElementById('menu-mobile');
+    const body = document.body;
+
+    function toggleMobileMenu() {
+        if (!mobileMenu) return; 
+        const isMenuOpen = mobileMenu.classList.toggle('is-open');
+        body.style.overflow = isMenuOpen ? 'hidden' : '';
+        if (menuButton) {
+            menuButton.setAttribute('aria-expanded', isMenuOpen);
+        }
+    }
+
+    if (menuButton) menuButton.addEventListener('click', toggleMobileMenu);
+    if (closeMenuButton) closeMenuButton.addEventListener('click', toggleMobileMenu);
+
+    // ==========================================
+    // 2. SCROLL ANIMATIONS (Intersection Observer)
+    // ==========================================
+    const observerOptions = {
+        root: null, // viewport
+        rootMargin: '0px',
+        threshold: 0.1 // Trigger when 10% of element is visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Run animation once
+            }
+        });
+    }, observerOptions);
+
+    // Select all elements to animate
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    animateElements.forEach(el => {
+        observer.observe(el);
+    });
+
+    // ==========================================
+    // 3. UTILITY: MESSAGE BOX
+    // ==========================================
+    // If script.js isn't loaded yet, define a fallback
+    if (typeof window.displayMessageBox === 'undefined') {
+        window.displayMessageBox = function(message) {
+            alert(message);
+        };
+    }
+});
+
 // Simple Message Box Implementation (Replaces 'alert()')
 window.displayMessageBox = function(message) {
     const existingBox = document.getElementById('message-box');
