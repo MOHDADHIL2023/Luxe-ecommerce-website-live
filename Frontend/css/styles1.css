@@ -172,7 +172,7 @@ header{
 
 /* product section css styling */
 .Products-Hero-Section{
-    background-image: url(/Frontend/images/product2.jpg);
+    background-image: url(../images/product2.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;

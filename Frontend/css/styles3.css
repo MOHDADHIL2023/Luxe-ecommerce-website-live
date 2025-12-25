@@ -115,7 +115,7 @@ header{
 
 /* product section css styling */
 .About-Hero-Section{
-    background-image: url(/Frontend/images/aboutfashion.jpg);
+    background-image: url(../images/aboutfashion.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -410,7 +410,7 @@ footer{
 /*  our values section styling */
 .values-section{
     background-color: black;
-    background-image: url(/Frontend/images/black2_bd.jpg);
+    background-image: url(../images/black2_bd.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -579,7 +579,7 @@ footer{
 
 /* cta section styling */
 .cta-section{
-    background-image: url(/Frontend/images/black3_bd.jpg);
+    background-image: url(../images/black3_bd.jpg);
     background-position: center;
     background-size: cover;
     padding: 5rem 0;

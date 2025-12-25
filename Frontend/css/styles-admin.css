@@ -24,7 +24,7 @@ body {
 
 /* Admin Hero Section */
 .Admin-Hero-Section {
-    background-image: url(/Frontend/images/admin.jpg);
+    background-image: url(../images/admin.jpg);
     background-size: cover;
     background-position: center;
     height: 50vh;

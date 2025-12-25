@@ -124,7 +124,7 @@ header{
    ORDERS HERO SECTION
    ======================================== */
 .Orders-Hero-Section{
-    background-image: url(/Frontend/images/order.jpg);
+    background-image: url(../images/order.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;

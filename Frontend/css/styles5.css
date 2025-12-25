@@ -118,7 +118,7 @@ header{
 
 /* contact section css styling */
 .Contact-Hero-Section{
-    background-image: url(/Frontend/images/contact.jpg);
+    background-image: url(../images/contact.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -300,7 +300,7 @@ header{
 /*  FAQ Section Styles  */
 .faq-section {
     padding: 4.5rem 1rem;
-    background-image: url(/Frontend/images/white_bd.jpg);
+    background-image: url(../images/white_bd.jpg);
 }
 
 .faq-container{
@@ -394,7 +394,7 @@ header{
 /* --- Contact Form Section Styles (Send Us a Message) --- */
 .contact-form-section {
     background-color: #0A0A0A; 
-    background-image: url(/Frontend/images/black3_bd.jpg);
+    background-image: url(../images/black3_bd.jpg);
     background-size: cover;
     background-position: center;
     padding: 5rem 1rem;

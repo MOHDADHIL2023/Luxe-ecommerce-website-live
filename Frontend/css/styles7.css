@@ -308,7 +308,7 @@ header{
 
 /* Cart Hero Section */
 .Cart-Hero-Section{
-    background-image: url(/Frontend/images/shopping.jpg);
+    background-image: url(../images/shopping.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;

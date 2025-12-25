@@ -115,7 +115,7 @@ header{
 
 /* categories section css styling */
 .Categories-Hero-Section{
-    background-image: url(/Frontend/images/catergories.jpg);
+    background-image: url(../images/catergories.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -436,7 +436,7 @@ footer{
 
 /* contact section styling */
 .contact-section{
-    background-image: url(/Frontend/images/black3_bd.jpg);
+    background-image: url(../images/black3_bd.jpg);
     background-size: cover;
     background-position: center;
     padding: 6rem 1rem;
