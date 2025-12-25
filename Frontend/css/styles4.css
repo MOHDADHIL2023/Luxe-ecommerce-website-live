@@ -686,6 +686,59 @@ footer {
     text-align: center;
 }
 
+/* Mobile menu bar off canvas */
+.Menu-Mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 75%;
+    max-width: 300px;
+    height: 100%;
+    background-color: black;
+    z-index: 60;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.Menu-Mobile.is-open {
+    transform: translateX(0);
+}
+
+.Menu-Mobile .menu-content {
+    padding: 4rem 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.Menu-Mobile a {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+}
+
+.Menu-Mobile a:hover {
+    color: green;
+}
+
+.Close-Menu-Button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.Close-Menu-Button:hover {
+    color: green;
+}
+
 /* =========================================
    RESPONSIVE BREAKPOINTS
    ========================================= */
@@ -734,6 +787,11 @@ footer {
         width: 50px; height: 50px; background: black; color: white;
         border-radius: 50%; border: none; cursor: pointer; transition: all 0.3s;
     }
+
+    .Menu-Button {
+        display: none; /* Hide Hamburger */
+    }
+    
     .carousel-prev { left: -1.5rem; }
     .carousel-next { right: -1.5rem; }
     .carousel-nav-btn:hover { background: #10B981; }
@@ -784,4 +842,19 @@ footer {
 @media (min-width: 640px) {
     .newsletter-form-blog { flex-direction: row; }
     .newsletter-input { flex: 1; }
+}
+
+@media (min-width: 768px) {
+    .Menu-Button {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .Menu-Button {
+        display: block;
+    }
+    .nav-desktop {
+        display: none;
+    }
 }
