@@ -1,27 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ==========================================
-    // 1. MOBILE MENU LOGIC
-    // ==========================================
-    const menuButton = document.getElementById('menu-button');
-    const closeMenuButton = document.getElementById('close-menu-button');
-    const mobileMenu = document.getElementById('menu-mobile');
-    const body = document.body;
-
-    function toggleMobileMenu() {
-        if (!mobileMenu) return; 
-        const isMenuOpen = mobileMenu.classList.toggle('is-open');
-        body.style.overflow = isMenuOpen ? 'hidden' : '';
-        if (menuButton) {
-            menuButton.setAttribute('aria-expanded', isMenuOpen);
-        }
-    }
-
-    if (menuButton) menuButton.addEventListener('click', toggleMobileMenu);
-    if (closeMenuButton) closeMenuButton.addEventListener('click', toggleMobileMenu);
-
-    // ==========================================
-    // 2. SCROLL ANIMATIONS (Intersection Observer)
+    // 1. SCROLL ANIMATIONS (Intersection Observer)
     // ==========================================
     const observerOptions = {
         root: null, // viewport
@@ -45,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // 3. UTILITY: MESSAGE BOX
+    // 2. UTILITY: MESSAGE BOX
     // ==========================================
     // If script.js isn't loaded yet, define a fallback
     if (typeof window.displayMessageBox === 'undefined') {
